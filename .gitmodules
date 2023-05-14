@@ -4,3 +4,6 @@
 [submodule "vim/pack/bundle/opt/ale"]
 	path = vim/pack/bundle/opt/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule "vim/pack/bundle/opt/battery"]
+	path = vim/pack/bundle/opt/battery
+	url = https://github.com/lambdalisue/battery.vim
