@@ -1,3 +1,6 @@
 [submodule "vim/pack/bundle/opt/vim-airline"]
 	path = vim/pack/bundle/opt/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/bundle/opt/ale"]
+	path = vim/pack/bundle/opt/ale
+	url = https://github.com/dense-analysis/ale.git

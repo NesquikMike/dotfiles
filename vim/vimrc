@@ -5,7 +5,6 @@
 if &loadplugins
 	if has('packages')
 		packadd! vim-airline
-		packadd! vim-surround
 		packadd! ale 
 		packadd! battery
 	endif
