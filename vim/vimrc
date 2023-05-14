@@ -1,0 +1,120 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if &loadplugins
+	if has('packages')
+		packadd! vim-airline
+		packadd! vim-surround
+		packadd! ale 
+		packadd! battery
+	endif
+endif
+
+let g:airline_section_b = '%{strftime("%c")} %{battery#component()}'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_completion_enabled = 0
+let g:ale_virtualtext_cursor = 'current'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 1
+let g:ale_lint_delay = 100
+
+set omnifunc=ale#completion#OmniFunc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * checktime
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim user interface 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Add hybrid line numbers
+set relativenumber number		
+
+" Set an 80 column border for good coding style
+" set cc=80		
+
+" Highlight search results
+set hlsearch
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" Vim style cursor (neovim only)
+" set guicursor=
+
+" how many columns of whitespace is a \t worth
+set tabstop=4
+
+" how many columns of whitespace is a 'level of identation' worth
+set shiftwidth=4
+
+" how many columns of whitespace is a tab or a backspace keypress worth
+set softtabstop=4
+
+" Stop line wrap
+set nowrap
+
+" Highlight search results
+set hlsearch
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" Add a bit extra margin to the left
+set foldcolumn=1
+
+" Set indentation of new line to the indentation of the current line 
+set autoindent
+
+" Indents based on things like the indentation of curly brackets 
+set smartindent 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => netrw config for browsing files and folders 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enables tree list view in netrw by default
+let g:netrw_liststyle = 3
+
+" removes the default netrw banner
+let g:netrw_banner = 0
+
+" sets files to open in previous window
+let g:netrw_browse_split = 4
+
+" open new file to the right of the netrw buffer
+let g:netrw_altv = 1
+
+" sets the width of netrw to 20% of the terminal
+let g:netrw_winsize = 20
+
