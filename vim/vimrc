@@ -6,19 +6,59 @@ if &loadplugins
 	if has('packages')
 		packadd! vim-airline
 		packadd! ale 
+		packadd! vim-go
 		packadd! battery
+		packadd! context.vim
 	endif
 endif
 
+" Fix airline bar according to instructions here:
+" https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 let g:airline_section_b = '%{strftime("%c")} %{battery#component()}'
+let g:airline_section_z = airline#section#create(['%p%%', 'linenr', ':%v'])
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 let g:ale_virtualtext_cursor = 'current'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 1
 let g:ale_lint_delay = 100
+let g:ale_linters = {'go': ['gopls']}
+let g:ale_fixers = {'go': ['gopls']}
+let g:ale_go_gopls_options = '--remote=auto'
+
+" avoid feature overlap with ALE
+let g:go_fmt_autosave = 0        " Disable vim-go auto-format on save
+let g:go_imports_autosave = 0    " Disable vim-go auto-imports on save
+let g:go_metalinter_autosave = 0 " Disable vim-go linting on save
 
 set omnifunc=ale#completion#OmniFunc
 
@@ -35,7 +75,7 @@ au FocusGained,BufEnter * checktime
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Add hybrid line numbers
-set relativenumber number		
+set number		
 
 " Set an 80 column border for good coding style
 " set cc=80		

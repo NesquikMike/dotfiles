@@ -7,3 +7,9 @@
 [submodule "vim/pack/bundle/opt/battery"]
 	path = vim/pack/bundle/opt/battery
 	url = https://github.com/lambdalisue/battery.vim
+[submodule "vim/pack/bundle/opt/vim-go"]
+	path = vim/pack/bundle/opt/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "vim/pack/bundle/opt/context.vim"]
+	path = vim/pack/bundle/opt/context.vim
+	url = https://github.com/wellle/context.vim.git
