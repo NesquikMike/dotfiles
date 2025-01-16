@@ -1,18 +1,14 @@
 [font]
-size = 8.0
+size = 8
 
 [font.bold]
-family = "monospace"
-style = "Bold"
+family = "Fira Code"
 
 [font.bold_italic]
-family = "monospace"
-style = "Bold Italic"
+family = "Fira Code"
 
 [font.italic]
-family = "monospace"
-style = "Italic"
+family = "Fira Code"
 
 [font.normal]
-family = "monospace"
-style = "Regular"
+family = "Fira Code"

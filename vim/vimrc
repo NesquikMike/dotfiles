@@ -2,6 +2,9 @@
 " => Plugins 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Enable filetype detection, plugins, and indentation
+filetype plugin indent on
+
 if &loadplugins
 	if has('packages')
 		packadd! vim-airline
@@ -78,10 +81,10 @@ au FocusGained,BufEnter * checktime
 set number		
 
 " Set an 80 column border for good coding style
-" set cc=80		
+set cc=80		
 
-" Highlight search results
-set hlsearch
+" Use 256 colors if your terminal supports it
+set t_Co=256
 
 " Show matching brackets when text indicator is over them
 set showmatch
@@ -107,20 +110,44 @@ set nowrap
 " Highlight search results
 set hlsearch
 
+" Set the color for search matches
+highlight Search cterm=bold ctermbg=yellow ctermfg=black
+
+" Set the color for line numbers
+highlight LineNr ctermfg=darkgray
+
+" Customize the folded text (background, foreground, and style)
+highlight Folded ctermfg=gray ctermbg=black cterm=italic
+
+" Customize the fold column
+highlight FoldColumn ctermfg=cyan ctermbg=black
+
+" Improves parenthesis matching
+highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
+" Set the code to be folded by default
+set foldenable
+set foldmethod=syntax  " Fold based on syntax
+autocmd BufReadPost * set foldlevel=0
+
 " Show matching brackets when text indicator is over them
 set showmatch
 
 " How many tenths of a second to blink when matching brackets
-set mat=2
+set mat=20
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+set foldcolumn=0
 
 " Set indentation of new line to the indentation of the current line 
 set autoindent
 
 " Indents based on things like the indentation of curly brackets 
 set smartindent 
+
+" Highlight tabs and mixed spaces (useful for consistent indentation)
+set list
+set listchars=tab:▸\ ,trail:·
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
